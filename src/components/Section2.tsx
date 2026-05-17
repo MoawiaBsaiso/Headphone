@@ -1,52 +1,57 @@
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Button from './ui/Button'
+import FeatureCard from './ui/FeatureCard'
+
+gsap.registerPlugin(ScrollTrigger)
+
 const features = [
-  {
-    name: 'Crystal-Clear Audio',
-    detail: 'Hear every detail with balanced bass and studio-quality mids and highs.',
-  },
-  {
-    name: 'All-Day Comfort',
-    detail: 'Lightweight build with plush ear cushions and ergonomic fit.',
-  },
-  {
-    name: '40+ Hour Battery Life',
-    detail: 'Long-lasting performance, wherever you go.',
-  },
+  { title: 'Crystal-Clear Audio', description: 'Hear every detail with balanced bass and studio-quality mids and highs.' },
+  { title: 'All-Day Comfort', description: 'Lightweight build with plush ear cushions and ergonomic fit.' },
+  { title: '40+ Hour Battery Life', description: 'Long-lasting performance, wherever you go.' },
 ]
 
 export default function Section2() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    if (!contentRef.current || !sectionRef.current) return
+
+    gsap.from(contentRef.current, {
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: '-50% bottom',
+        end: 'center center',
+      },
+      y: '140%',
+      ease: 'power1.inOut',
+    })
+  }, { scope: sectionRef })
+
   return (
-    <div id="section2" style={{ minHeight: '100vh', paddingTop: '4vw' }}>
-      <div style={{ maxWidth: '500px' }} className="content-wrapper">
-        <h2 className="heading">True Clarity</h2>
+    <section ref={sectionRef} id="section2" className="min-h-screen pt-[4vw]">
+      <div ref={contentRef} className="max-w-[500px]">
+        <h2
+          className="uppercase font-bold text-[6.5vw] leading-[0.95] mb-5 text-[var(--primary)]"
+          style={{ fontFamily: 'Outfit, sans-serif' }}
+        >
+          True Clarity
+        </h2>
         <p>
           Engineered for clarity, comfort, and immersive sound — Audira redefines
           your listening experience with style and performance in perfect harmony.
         </p>
-        <a href="#" className="btn" style={{ backgroundColor: 'var(--black)', marginTop: '1.8rem' }}>
-          Buy Now
-        </a>
+        <Button label="Buy Now" variant="dark" className="mt-7" />
       </div>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1.8rem',
-          marginTop: '8vw',
-        }}
-      >
+      <div className="grid grid-cols-3 gap-7 mt-[8vw]">
         {features.map((f) => (
-          <div
-            key={f.name}
-            style={{ border: '2px solid var(--black)', padding: '1.2vw 1.4vw', borderRadius: '10px' }}
-          >
-            <div style={{ fontFamily: 'Outfit, sans-serif', textTransform: 'uppercase', fontSize: '1.4rem', lineHeight: 1.2, marginBottom: '0.5rem' }}>
-              {f.name}
-            </div>
-            <div>{f.detail}</div>
-          </div>
+          <FeatureCard key={f.title} title={f.title} description={f.description} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

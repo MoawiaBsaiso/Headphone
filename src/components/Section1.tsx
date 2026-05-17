@@ -1,23 +1,43 @@
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
+import { SplitText } from 'gsap/SplitText'
+
+gsap.registerPlugin(SplitText)
+
 export default function Section1() {
+  const headingRef = useRef<HTMLHeadingElement>(null)
+
+  useGSAP(() => {
+    if (!headingRef.current) return
+
+    const split = SplitText.create(headingRef.current, {
+      type: 'chars,words,lines',
+      mask: 'lines',
+    })
+
+    gsap.from(split.chars, {
+      yPercent: () => gsap.utils.random(-100, 100),
+      rotation: () => gsap.utils.random(-30, 30),
+      autoAlpha: 0,
+      ease: 'back.out(1.5)',
+      stagger: { amount: 0.5, from: 'random' },
+      duration: 1.5,
+    })
+  }, { scope: headingRef })
+
   return (
-    <div
+    <section
       id="section1"
-      style={{
-        height: '100vh',
-        width: '60vw',
-        margin: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-      }}
+      className="h-screen w-[60vw] mx-auto flex items-center justify-center text-center"
     >
       <h1
-        className="heading"
-        style={{ fontSize: '11.5vw', lineHeight: 0.85, marginBottom: 0 }}
+        ref={headingRef}
+        className="uppercase font-bold text-[11.5vw] leading-[0.85] text-[var(--primary)]"
+        style={{ fontFamily: 'Outfit, sans-serif' }}
       >
         Modern Harmony
       </h1>
-    </div>
+    </section>
   )
 }
