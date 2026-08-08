@@ -11,7 +11,7 @@ export default function Button({ label, href = '#', variant = 'primary', classNa
   return (
     <a
       href={href}
-      className={`inline-block text-white font-medium px-5 py-2 rounded-[10px] ${bg} ${className}`}
+      className={`inline-block text-white font-medium px-5 py-2 rounded-[25px] ${bg} ${className}`}
     >
       {label}
     </a>

@@ -65,7 +65,7 @@ export default function App() {
       <div ref={wrapperRef} id="smooth-wrapper">
         <div ref={contentRef} id="smooth-content">
 
-          <div id="main" className="w-[calc(100vw-10rem)] max-w-[1440px] mx-auto overflow-hidden relative">
+          <div id="main" className="w-[calc(100vw-10rem)] max-w-[1440px] mx-auto w-section relative">
             <img
               ref={headphoneRef}
               src="/images/brown.png"

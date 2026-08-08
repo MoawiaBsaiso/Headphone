@@ -25,7 +25,7 @@ export default function Section3() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} id="section3" className="min-h-screen pt-[4vw] pb-[4vw]">
+    <section ref={sectionRef} id="section3" className="w-section min-h-screen pt-[4vw] pb-[4vw]">
       <h2
         ref={headingRef}
         className="uppercase font-bold text-center text-[clamp(2rem,12.5vw,13.5rem)] leading-[0.95] mb-[3vw] text-[var(--primary)]"
@@ -34,7 +34,7 @@ export default function Section3() {
         Masterbeat
       </h2>
 
-      <div className="flex items-center gap-[4vw]">
+      <div className="flex items-start gap-[4vw] flex-wrap">
         <video
           autoPlay loop muted
           className="w-full max-w-[500px] rounded-[10px]"

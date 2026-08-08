@@ -27,17 +27,14 @@ export default function Section1() {
   }, { scope: headingRef })
 
   return (
-    <section
-      id="section1"
-      className="h-screen w-[60vw] mx-auto flex items-center justify-center text-center"
-    >
-      <h1
-        ref={headingRef}
-        className="uppercase font-bold text-[11.5vw] leading-[0.85] text-[var(--primary)]"
-        style={{ fontFamily: 'Outfit, sans-serif' }}
-      >
-        Modern Harmony
-      </h1>
-    </section>
+    <section id="section1" className="h-screen flex items-center justify-center text-center">
+  <h1
+    ref={headingRef}
+    className="uppercase font-bold text-[11.5vw] leading-[0.85] text-[var(--primary)]"
+    style={{ fontFamily: 'Outfit, sans-serif' }}
+  >
+    Modern Harmony
+  </h1>
+</section>
   )
 }

@@ -32,7 +32,7 @@ export default function Section2() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} id="section2" className="min-h-screen pt-[4vw]">
+    <section ref={sectionRef} id="section2" className="w-section min-h-screen pt-[4vw]">
       <div ref={contentRef} className="max-w-[500px]">
         <h2
           className="uppercase font-bold text-[6.5vw] leading-[0.95] mb-5 text-[var(--primary)]"

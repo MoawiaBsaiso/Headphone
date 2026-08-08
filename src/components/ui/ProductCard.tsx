@@ -11,7 +11,7 @@ export default function ProductCard({ name, price, image }: ProductCardProps) {
         <img
           src={image}
           alt={name}
-          className="w-full max-w-[300px] mb-6"
+          className="max-w-[200px] mb-6"
           style={{ filter: 'drop-shadow(6px 15px 5px #00000018)' }}
         />
       )}

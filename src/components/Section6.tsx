@@ -28,15 +28,15 @@ export default function Section6() {
     <section
       ref={sectionRef}
       id="section6"
-      className="w-[calc(100vw-10rem)] max-w-[1440px] mx-auto min-h-screen flex items-start gap-[5vw] pb-[8vw]"
+      className="w-section min-h-screen flex items-center gap-[5vw] pb-[8vw] pt-[4vw] w-[calc(100vw-10rem)] max-w-[1440px] mx-auto min-h-screen flex items-start gap-[5vw] pb-[8vw]"
     >
       <img
         src="/images/img4.jpg"
         alt="Pure Escape"
-        className="rounded-[10px]"
+        className="rounded-[10px] w-[45%] shrink-0"
         style={{ boxShadow: '0 0 30px #73442536' }}
       />
-      <div ref={contentRef} className="space-y-4">
+      <div ref={contentRef} className="space-y-4 flex-1">
         <h2
           className="uppercase font-bold text-[6.5vw] leading-[0.95] mb-5 text-[var(--primary)]"
           style={{ fontFamily: 'Outfit, sans-serif' }}

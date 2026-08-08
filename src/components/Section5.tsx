@@ -8,7 +8,7 @@ const products = [
 
 export default function Section5() {
   return (
-    <section id="section5" className="min-h-[94vh] text-center pt-[4vw] pb-[8vw]">
+    <section id="section5" className="w-section min-h-[94vh] text-center pt-[4vw] pb-[8vw]">
       <h2
         className="uppercase font-bold text-[6.5vw] leading-[0.95] mb-12 text-[var(--primary)]"
         style={{ fontFamily: 'Outfit, sans-serif' }}
