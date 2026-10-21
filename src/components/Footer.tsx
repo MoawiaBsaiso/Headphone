@@ -4,6 +4,7 @@ export default function Footer() {
       <img src="/images/logo.png" alt="Audira" className="max-w-[132px]" />
       <div className="flex items-center gap-4">
         <a href="#"><img src="/images/fb.png" alt="Facebook" className="w-6" /></a>
+        <a href="#">Moawia Bsaiso</a>
         <a href="#"><img src="/images/insta.png" alt="Instagram" className="w-6" /></a>
       </div>
     </footer>
